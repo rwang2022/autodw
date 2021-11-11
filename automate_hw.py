@@ -117,4 +117,3 @@ for cmd in cmd_list:
     time.sleep(3)
     keyboard.write(cmd)
     keyboard.send("enter")
-
