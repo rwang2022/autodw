@@ -1,6 +1,6 @@
 # if you don't have these, just paste this command into terminal: 
-# pip install pyperclip keyboard pause datetime
-import pyperclip, keyboard, pause, datetime  
+# pip install pyperclip keyboard pause datetime getpass
+import pyperclip, keyboard, pause, datetime, getpass
 import subprocess, time, sys
 
 # asdf = sys.argv[0]
@@ -12,6 +12,7 @@ import subprocess, time, sys
 gituser = "rwang2022"
 last3first = "WangRya"
 pd = 4
+passwd = getpass.getpass("Please type your password here: ")
 
 print("-" * 100)
 print("to use the generated commands first:")
@@ -52,27 +53,6 @@ print("-" * 100)
 print(f"\nThe following commands has been saved to str1\n")
 # print(f"(though if it has failed, you can simply copy it manually)\n")
 print(f"\t{str1}\n")
-
-
-def countdown(stop):
-    while True:
-        difference = stop - datetime.datetime.now()
-        count_hours, rem = divmod(difference.seconds, 3600)
-        count_minutes, count_seconds = divmod(rem, 60)
-        if difference.days == 0 and count_hours == 0 and count_minutes == 0 and count_seconds == 0:
-            print("Good bye!")
-            break
-        print('The count is: '
-              + str(difference.days) + " day(s) "
-              + str(count_hours) + " hour(s) "
-              + str(count_minutes) + " minute(s) "
-              + str(count_seconds) + " second(s) "
-              )
-        time.sleep(1)
-
-
-# getting ready to submit
-passwd = "statesmintdogunited1380" # I know this is super insecure but I need this shit to work 
 
 # submitting the work to DW
 # scheduling if user wants
