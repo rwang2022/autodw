@@ -1,7 +1,7 @@
 # if you don't have these, just paste this command into terminal: 
 # pip install pyperclip keyboard pause datetime
 import pyperclip, keyboard, subprocess, time, pause
-from datetime import datetime
+import datetime
 
 # change these variables to suit yourself
 gituser = "rwang2022"
@@ -53,13 +53,19 @@ print("submitting work now!!!")
 print("TESTING!!!")
 # scheduling if user wants
 if input("do u wanna schedule this submission? (y/n): ").strip().lower()[0] == "y":
-    yr  = int(input("give me year  ('2021'): "))
-    mon = int(input("give me month ('1-12'): "))
-    day = int(input("give me day   ('1-31'): "))
-    hr  = int(input("give me hour  ('0-23'): "))
-    mnt = int(input("give me min   ('0-59'): "))
-    sec = int(input("give me sec   ('0-59'): "))
-    pause.until(datetime(yr, mon, day, hr, mnt, sec))
+    if input("do u wanna schedule the exact time? (y/n): ").strip().lower()[0] == "y":
+        yr  = int(input("give me year  ('2021'): "))
+        mon = int(input("give me month ('1-12'): "))
+        day = int(input("give me day   ('1-31'): "))
+        hr  = int(input("give me hour  ('0-23'): "))
+        mnt = int(input("give me min   ('0-59'): "))
+        sec = int(input("give me sec   ('0-59'): "))
+        pause.until(datetime.datetime(yr, mon, day, hr, mnt, sec))
+    else:
+        hr  = int(input("give me hour from now ('0-23'): "))
+        mnt = int(input("give me min  from now ('0-59'): "))
+        time_change = datetime.timedelta(hours=hr, minutes=mnt)
+        pause.until(datetime.now() + time_change)
 
 # it is very important that shell=True (?)
 # https://stackoverflow.com/a/19257995
